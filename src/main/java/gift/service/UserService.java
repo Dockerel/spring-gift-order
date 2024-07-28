@@ -13,9 +13,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
+<<<<<<< HEAD
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.web.client.HttpClientErrorException;
+=======
+import org.springframework.util.LinkedMultiValueMap;
+>>>>>>> b07b5b7239f02129e3d48da698f57f865e53f4f4
 import org.springframework.web.client.RestClient;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -46,7 +50,16 @@ public class UserService {
                 .orElseThrow(() -> new ResourceNotFoundException("User not found"));
     }
 
+<<<<<<< HEAD
     @Transactional
+=======
+    public User findOne(Long id) {
+        return userRepository
+                .findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found"));
+    }
+
+>>>>>>> b07b5b7239f02129e3d48da698f57f865e53f4f4
     public String signup(UserDTO userDTO) {
         // 이미 존재하는 이메일
         if (userRepository.existsByEmail(userDTO.getEmail())) {
